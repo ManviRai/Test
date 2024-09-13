@@ -1,6 +1,6 @@
 const express=require('express');
 const bodyParser=require('body-parser');
-require('dotenv').config({path:'../config/dot.env'})
+require('dotenv').config({path:'./config/dot.env'})
 require('./db/mogoose')
 const {router}=require('./routers/user_router')
 
@@ -12,7 +12,7 @@ app.use(router);
 
 
 
-port=4040
+port=process.env.PORT;
 app.listen(port,()=>{
     console.log(`server running in port ${port} `)
 });
